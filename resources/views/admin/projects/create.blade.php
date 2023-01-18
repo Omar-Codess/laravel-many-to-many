@@ -25,6 +25,18 @@
                     </div>
 
                     <div class="mb-3">
+                        <h5>Technologies</h5>
+                        @foreach ($technologies as $technology)
+                            <div class="form-check">
+                                <input type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}"
+                                    class="form-check-input" value="{{ $technology->id }}" @checked(in_array($technology->id, old('technologies', [])))>
+                                <label for="technology-{{ $technology->id }}"
+                                    class="form-check-label">{{ $technology->title }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <div class="mb-3">
                         <label for="cover_image">Immagine</label>
                         <input type="file" name="cover_image" id="cover_image" class="form-control">
                     </div>
